@@ -1,6 +1,7 @@
 package net.meliody.tutorialmod;
 // Very Important Comment For Testing
 import com.mojang.logging.LogUtils;
+import net.meliody.tutorialmod.customitem.ModCustomItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +18,8 @@ public class TutorialMod {
     private static final Logger LOGGER = LogUtils.getLogger();
     public TutorialMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCustomItem.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
